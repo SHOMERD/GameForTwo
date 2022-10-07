@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using Random = System.Random;
+
 
 public class GameMenedgerR : MonoBehaviour
 {
@@ -12,8 +14,9 @@ public class GameMenedgerR : MonoBehaviour
     //public GameObject Tawer;
     public float minX, minY, maxX, maxY;
     public GameObject StartOfRoomThis;
-    public GameObject[] EndOfRoomThis;
+//    public GameObject[] EndOfRoomThis;
     public GameObject[] Room;
+    public Random rnd;
 
     public Text EndText;
     public Text HpText;
@@ -25,7 +28,7 @@ public class GameMenedgerR : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector2 radomePosition = new Vector2(Random.Range(minX, minY), Random.Range(maxX, maxY));
+        Vector2 radomePosition = new Vector2(0, 0);
         //if (PhotonNetwork.IsMasterClient)
         //    PhotonNetwork.Instantiate(Tawer.name, radomePosition, Quaternion.identity);
 
@@ -60,19 +63,24 @@ public class GameMenedgerR : MonoBehaviour
         return ElavePlaer;
     }
 
-    public void AddRoom(int k)
-    { 
-        EndOfRoomThis = GameObject.FindGameObjectsWithTag("EndOfRoom");
-        for (int i = 0; i < k; i++)
+    public void AddRoom(GameObject[] EndOfRoomThis)
+    {
+        if (PhotonNetwork.IsMasterClient)
         {
-            if (PhotonNetwork.IsMasterClient)
+            for (int i = 0; i < EndOfRoomThis.Length; i++)
             {
-                GameObject Ro5om = PhotonNetwork.Instantiate(Room[1].name, EndOfRoomThis[i].transform.position, Quaternion.identity);
-                //RoomMenegerScript Roomf  = Ro5om.GetComponentInChildren<RoomMenegerScript>();
-                // Ro5om.transform.position = EndOfRoomThis.transform.position + Roomf.StartOfRoom.transform.position;
+                try
+                {
+                    GameObject Ro5om = PhotonNetwork.Instantiate(Room[1].name, EndOfRoomThis[i].transform.position, EndOfRoomThis[i].transform.rotation);
+                    RoomMenegerScript Roomf = Ro5om.GetComponentInChildren<RoomMenegerScript>();
+                }
+                catch (System.Exception)
+                {
+                    throw;
+                }
 
+               
             }
-            Destroy(StartOfRoomThis);
         }
        
 

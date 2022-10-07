@@ -13,17 +13,19 @@ public class RoomMenegerScript : MonoBehaviourPun
     public GameObject[] players;
     public GameObject[] ObjectToOf;
     public GameObject[] DesActive;
-    public Transform StartOfRoom;
-    public Transform EndOfRoom;
+    public GameObject StartOfRoom;
+    public GameObject[] EndOfRoom;
     public int EnemyS;
     public int BoysCol;
     public Transform shotDir;
     public int EnemyColmaxs = 25;
-    public int ExitsCol = 1;
     public int EnemyCol;
     public GameObject[] badBoyS;
     public Transform[] SpavPoints;
     public GameObject[] EnemyMass;
+
+    public bool x=false;
+
 
     public Transform Tp;
     int RIndexFBoys;
@@ -52,7 +54,10 @@ public class RoomMenegerScript : MonoBehaviourPun
         {
             DesActive[i].SetActive(false);
         }
-
+        //for (int i = 0; i < EndOfRoom.Length; i++)
+        //{
+        //    //EndOfRoom[i].SetActive(false);
+        //}
         EnemyS = 0;
 
         //CanHiling = false;
@@ -101,13 +106,12 @@ public class RoomMenegerScript : MonoBehaviourPun
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.tag == "EndOfRoom")
-        {
-
-            Room.transform.position = collision.transform.position - StartOfRoom.localPosition;
-            //Room.transform.rotation = collision.transform.rotation;
-            Debug.LogWarning("gjldbyenj");
-        }
+        //if (collision.tag == "EndOfRoom")
+        //{
+        //    Room.transform.rotation = collision.transform.rotation;
+        //    Room.transform.position = collision.transform.position - StartOfRoom.GetComponentInChildren<Transform>().localPosition;
+        //    Debug.LogWarning("gjldbyenj");
+        //}
 
         if (collision.tag == "Player")
         {
@@ -119,18 +123,6 @@ public class RoomMenegerScript : MonoBehaviourPun
         }
 
     }
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.tag == "ammo")
-    //    {
-    //        CanHiling = false;
-    //    }
-    //}
-    //public void GetDamedge(float damedg)
-    //{
-    //    hp = hp - (damedg / 2);
-    //    photonView.RPC("synchronization", RpcTarget.AllBuffered, XP, hp);
-    //}
 
     public void EnemySpawner()
     {
@@ -202,17 +194,21 @@ public class RoomMenegerScript : MonoBehaviourPun
     public void RoomClined()
     {
         
-        Invoke("ExitThisRoom", 1);
+        //Invoke("ExitThisRoom", 1);
         //ObjectToOf[i].SetActive(false);
 
-        if (PhotonNetwork.IsMasterClient & ExitsCol > 0)
+        if (PhotonNetwork.IsMasterClient & !x)
         {
+            x = true;
             GameMenedger = GameObject.FindGameObjectWithTag("Helper").GetComponent<GameMenedgerR>();
-            GameMenedger.XP++; 
-            GameMenedger.AddRoom(ExitsCol);
-            ExitsCol--;
+            GameMenedger.XP++;
+            //for (int i = 0; i < EndOfRoom.Length; i++)
+            //{
+            //    EndOfRoom[i].SetActive(true);
+            //}
+            GameMenedger.AddRoom(EndOfRoom);
         }
-       
+        ExitThisRoom();
 
     }
     public void KiledEnemy()
