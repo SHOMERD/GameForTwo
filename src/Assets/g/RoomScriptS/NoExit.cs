@@ -4,35 +4,51 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
-using Random = System.Random;
+using Random = UnityEngine.Random;
 
 public class NoExit : MonoBehaviour
 {
     public GameObject ExitCloser;
     public GameObject ExitPoint;
-    public Random rnd;
+    public GameObject DameCloser;
+
+    RoomMenegerScript RoomMenegerScripT;
 
 
     void Start()
     {
-        rnd = new Random();
-        if (rnd.Next(100) >= 50)
+        RoomMenegerScripT = GetComponentInParent<RoomMenegerScript>();;
+        int e = Random.Range(0, 100);   
+        if ( e >= 70)
         {
             CloceDoor();
-        } 
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Room")
         {
-            CloceDoor();
+            DameCloser.SetActive(true);
+            Invoke("Chek", 2);
         }
     }
     public void CloceDoor()
     {
-        RoomMenegerScript RoomMenegerScripT = GetComponentInParent<RoomMenegerScript>();
         ExitCloser.SetActive(true);
         Destroy(ExitPoint);
+    }
+
+    public void Chek()
+    {
+        if (!DameCloser.GetComponent<DameCloser>().ChekIxist())
+        {
+            Debug.Log("Удолено");
+            CloceDoor();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

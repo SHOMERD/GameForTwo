@@ -71,12 +71,11 @@ public class GameMenedgerR : MonoBehaviour
             {
                 try
                 {
-                    GameObject Ro5om = PhotonNetwork.Instantiate(Room[1].name, EndOfRoomThis[i].transform.position, EndOfRoomThis[i].transform.rotation);
+                    GameObject Ro5om = PhotonNetwork.Instantiate(Room[0].name, EndOfRoomThis[i].transform.position, EndOfRoomThis[i].transform.rotation);
                     RoomMenegerScript Roomf = Ro5om.GetComponentInChildren<RoomMenegerScript>();
                 }
                 catch (System.Exception)
                 {
-                    throw;
                 }
 
                

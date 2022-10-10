@@ -36,7 +36,7 @@ public class ammo : MonoBehaviour
             try
             {
                 enemyScriptRoom = collision.GetComponent<EnemyScriptRoom>();
-                enemyScriptRoom.GetDamedge(50);
+                enemyScriptRoom.GetDamedge(1100);
             }
             catch (System.Exception)
             {

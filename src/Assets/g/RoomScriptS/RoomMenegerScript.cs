@@ -33,7 +33,7 @@ public class RoomMenegerScript : MonoBehaviourPun
     public Random rnd;
     public int XP = 0;
     public int Timer = 1;
-    public int Allredy = 0;
+    public int AllredyDune = 0;
 
     public GameMenedgerR GameMenedger;
     //public Text EndText;
@@ -156,9 +156,16 @@ public class RoomMenegerScript : MonoBehaviourPun
         
         for (int i = 0; i < DesActive.Length; i++)
         {
-            DesActive[i].SetActive(true);
+            try
+            {
+                DesActive[i].SetActive(true);
+            }catch (System.Exception)
+            {
+
+            }
+
         }
-        if (Allredy == 0 & PhotonNetwork.IsMasterClient)
+        if (AllredyDune == 0 & PhotonNetwork.IsMasterClient)
         {
             for (int i = EnemyColmaxs; i > 0; i--)
             {
@@ -167,7 +174,7 @@ public class RoomMenegerScript : MonoBehaviourPun
                 EnemySpawner();
             }
         }
-        Allredy = 1;
+        AllredyDune = 1;
 
     }
     public void CleanRoom()
@@ -202,13 +209,10 @@ public class RoomMenegerScript : MonoBehaviourPun
             x = true;
             GameMenedger = GameObject.FindGameObjectWithTag("Helper").GetComponent<GameMenedgerR>();
             GameMenedger.XP++;
-            //for (int i = 0; i < EndOfRoom.Length; i++)
-            //{
-            //    EndOfRoom[i].SetActive(true);
-            //}
             GameMenedger.AddRoom(EndOfRoom);
         }
-        ExitThisRoom();
+        Invoke("ExitThisRoom", 1);
+        
 
     }
     public void KiledEnemy()
