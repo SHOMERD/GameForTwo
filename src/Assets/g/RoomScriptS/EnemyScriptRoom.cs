@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-using Random = System.Random;
+using Random = UnityEngine.Random;
 
 
 
 public class EnemyScriptRoom : MonoBehaviourPun
 {
-
-    public Random rnd;
     public int WeyNamber;
     public int WeyVector1; 
     public int WeyVector2;
@@ -21,12 +19,10 @@ public class EnemyScriptRoom : MonoBehaviourPun
     public float speedN = 11f;
     public int EnemySeed;
     public float hp = 100;
+    public GameObject Bafer;
 
     void Start()
     {
-       
-        rnd = new Random();
-
         ChajWay();
     }
 
@@ -112,11 +108,11 @@ public class EnemyScriptRoom : MonoBehaviourPun
     }
     public void ChajWay()
     {
-        WeyVector1 = rnd.Next(1, 3);
-        WeyVector2 = rnd.Next(1, 3);
-        WeyNamber = rnd.Next(1, 4);
-        RanTyme = rnd.Next(40, EnemySeed%150+50);
-        speedN = rnd.Next(5, 15);
+        WeyVector1 = Random.Range(1, 3);
+        WeyVector2 = Random.Range(1, 3);
+        WeyNamber = Random.Range(1, 4);
+        RanTyme = Random.Range(40, EnemySeed%200+51);
+        speedN = Random.Range(5, 16);
     }
 
 
@@ -124,8 +120,15 @@ public class EnemyScriptRoom : MonoBehaviourPun
     public void synchronizationHP(float MasterHP)
     {
         hp = MasterHP;
-        if (hp < 0)
+        if (hp < 0){
+            
+            if (Random.Range(0, 100) >= 80)
+            {
+                Instantiate(Bafer, transform.position, transform.rotation);   
+            } 
+                     
             Destroy();
+        }
     }
 
 

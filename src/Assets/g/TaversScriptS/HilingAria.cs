@@ -7,6 +7,7 @@ public class HilingAria : MonoBehaviour
     float timer = 0f;
     int CanHiling = 0;
     public GameObject Mi, NotMi;
+    Vector3 SC;
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class HilingAria : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 SC = transform.localScale * (timer / 265);
+        SC = transform.localScale * (timer / 265);
         NotMi.transform.localScale =SC;
         if (CanHiling > 0 )
         {

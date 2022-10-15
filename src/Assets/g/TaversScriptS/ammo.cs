@@ -48,7 +48,7 @@ public class ammo : MonoBehaviour
 
 
         }
-        if (collision.tag == "AmmoDestroer")
+        if (collision.tag == "LevelObject")
         {
             Destroy(gameObject);
         }

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Bafer : MonoBehaviour
 {
@@ -8,19 +10,15 @@ public class Bafer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        BafTipe = Random.Range(1, 5); 
     }
 
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
-        {
+        { 
             MaceBaf(collision);
-
-            // collision.GetComponentInChildren<Gun>().ReShootTime = 5;
-            // GuyScript guyScript = collision.GetComponent<GuyScript>();
-            //Destroy(collision.gameObject);
         }  
     }
 
@@ -38,15 +36,19 @@ public class Bafer : MonoBehaviour
                 BafedObject.GetComponent<GuyScript>().speedN *= 1.1f;
                 break;
             case 4:
-                
+                Vector3 SC = BafedObject.GetComponentInChildren<Gun>().shotDir.localScale * 1.2f;
+                BafedObject.GetComponentInChildren<Gun>().shotDir.localScale = SC;
                 break;
             case 5:
-                
+                BafedObject.GetComponentInChildren<Gun>().AmmoSpeed *= 1.2f;
+                break;
+            case 6:
+                BafedObject.GetComponentInChildren<Gun>().AmmoDamedge = (int)Math.Round(BafedObject.GetComponentInChildren<Gun>().AmmoDamedge * 1.2f );
                 break;
             default:
                 break;
         }
-                
+        Destroy(gameObject);
 
     }
 }
