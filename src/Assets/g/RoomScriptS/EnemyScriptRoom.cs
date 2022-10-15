@@ -15,14 +15,7 @@ public class EnemyScriptRoom : MonoBehaviourPun
     public int WeyVector1; 
     public int WeyVector2;
     public int RanTyme;
-    //public double  
-    //public Transform positionOfTawer;
     public float Speed = 5f;
-    public Transform ttawer;
-    //public Transform position4;
-    //public Transform position5;
-    //public Transform position6;
-    Vector3 GoTo;
     RoomMenegerScript roomMenegerScript;
     public float Damedge;
     public float speedN = 11f;
@@ -35,9 +28,6 @@ public class EnemyScriptRoom : MonoBehaviourPun
         rnd = new Random();
 
         ChajWay();
-
-        //GoTo = positionOfTawer.position;
-        //ttawer = GameObject.FindGameObjectWithTag("412").transform;
     }
 
     // Update is called once per frame
@@ -66,7 +56,6 @@ public class EnemyScriptRoom : MonoBehaviourPun
             }
 
         }
-        //transform.position = Vector3.MoveTowards(transform.position, ttawer.position, Speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -83,10 +72,6 @@ public class EnemyScriptRoom : MonoBehaviourPun
 
     }
 
-    //public void Damedging()
-    //{
-    //    tawerScript.GetDamedge(Damedge);
-    //}
     public void Destroy()
     {
         Destroy(gameObject);
@@ -124,15 +109,6 @@ public class EnemyScriptRoom : MonoBehaviourPun
     public void GetDamedge(int damedg)
     {
         photonView.RPC("synchronizationHP", RpcTarget.AllBuffered, hp - damedg);
-    }
-    private void FixedUpdate()
-    {
-       
-        //if (Input.GetButton("Horizontal") )
-        //    RunR();
-        //if (Input.GetButton("Vertical") )
-        //    RunU();
-
     }
     public void ChajWay()
     {

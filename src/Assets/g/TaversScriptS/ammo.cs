@@ -11,11 +11,16 @@ public class ammo : MonoBehaviour
 {
     public float speed = 8f;
     EnemyScriptRoom enemyScriptRoom;
+    public int Damedge = 50;
 
     // Start is called before the first frame update
     void Start()
     {
         Invoke("Destroy", 4);
+    }
+
+    public void Destroy(){
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
@@ -24,10 +29,6 @@ public class ammo : MonoBehaviour
         transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 
-    void Destroy()
-    {
-        Destroy(gameObject);
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -36,24 +37,20 @@ public class ammo : MonoBehaviour
             try
             {
                 enemyScriptRoom = collision.GetComponent<EnemyScriptRoom>();
-                enemyScriptRoom.GetDamedge(1100);
+                enemyScriptRoom.GetDamedge(Damedge);
             }
             catch (System.Exception)
             {
                 Debug.LogWarning("Ankilebele target");
                 Destroy(collision);
-                throw;
             }
-            enemyScriptRoom = collision.GetComponent<EnemyScriptRoom>();
-            enemyScriptRoom.GetDamedge(50);
-            //Destroy(collision.gameObject);
-            Destroy();
+            Destroy(gameObject);
+
 
         }
         if (collision.tag == "AmmoDestroer")
         {
-            Destroy();
-
+            Destroy(gameObject);
         }
 
         

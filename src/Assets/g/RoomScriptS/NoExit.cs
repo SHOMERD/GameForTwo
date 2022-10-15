@@ -12,14 +12,12 @@ public class NoExit : MonoBehaviour
     public GameObject ExitPoint;
     public GameObject DameCloser;
 
-    RoomMenegerScript RoomMenegerScripT;
-
+    
 
     void Start()
     {
-        RoomMenegerScripT = GetComponentInParent<RoomMenegerScript>();;
         int e = Random.Range(0, 100);   
-        if ( e >= 70)
+        if ( e >= 60)
         {
             CloceDoor();
         }

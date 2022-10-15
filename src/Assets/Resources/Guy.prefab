@@ -467,7 +467,7 @@ Transform:
   m_GameObject: {fileID: 4993850509798064749}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.605, y: 0, z: 0}
-  m_LocalScale: {x: 0.4827819, y: 1.8385732, z: 0}
+  m_LocalScale: {x: 1, y: 0.15, z: 0}
   m_Children: []
   m_Father: {fileID: 4993850509957034190}
   m_RootOrder: 0
@@ -575,6 +575,10 @@ MonoBehaviour:
   ammo: {fileID: 6574683418903529, guid: 7e37603c0a97a0a4e9fd1500a0583e39, type: 3}
   shotDir: {fileID: 4993850509798064754}
   view: {fileID: 0}
+  ReShootTime: 30
+  ShootTimrt: 0
+  AmmoDamedge: 50
+  AmmoSpeed: 8
 --- !u!114 &1199553713059101414
 MonoBehaviour:
   m_ObjectHideFlags: 0

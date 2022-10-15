@@ -36,17 +36,9 @@ public class RoomMenegerScript : MonoBehaviourPun
     public int AllredyDune = 0;
 
     public GameMenedgerR GameMenedger;
-    //public Text EndText;
-    //public Text HpText;
-    //public string EndTextText;
-    //public string HpTextText;
-    //public GameObject EndConvas;
-    //private SpriteRenderer sprite;
-    //public int MaxHp = 1600;
-    //public int HpToHiling = 111;
-    //public bool CanHiling = false;
 
-    // Start is called before the first frame update
+
+
     void Start()
     {
         
@@ -54,64 +46,13 @@ public class RoomMenegerScript : MonoBehaviourPun
         {
             DesActive[i].SetActive(false);
         }
-        //for (int i = 0; i < EndOfRoom.Length; i++)
-        //{
-        //    //EndOfRoom[i].SetActive(false);
-        //}
         EnemyS = 0;
-
-        //CanHiling = false;
-        //sprite = GetComponent<SpriteRenderer>();
-        //EndConvas.SetActive(false);
         rnd = new Random();
-        //if (/*Timer > TimToSpavn &*/ /*PhotonNetwork.IsMasterClient*/ true)
-        //{
-
-        //    //TimToSpavn = TimToSpavn - 1;
-        //    //if (100 > TimToSpavn & 30 < rnd.Next(100))
-        //    //{
-        //    //    TimToSpavn = 500;
-        //    //    BoysCol++;
-        //    //}
-        //}
 
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-
-        //HpTextText = "Жизни Башни:" + hp;
-        //HpText.text = HpTextText;
-        //if (hp < 0)
-        //{
-        //    sprite.color = Color.red;
-        //    Invoke("EndeOfGame", 4);
-        //    Invoke("TheWardo", 6);
-        //}
-        //if (Timer % 150 == 0)
-        //{
-        //    XP++;
-
-        //}
-        //if (Timer % 100 == 0 & hp < MaxHp & CanHiling)
-        //{
-        //    hp = hp + HpToHiling;
-        //    photonView.RPC("synchronization", RpcTarget.AllBuffered, XP, hp);
-        //}
-
-        //Timer++;
-
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        //if (collision.tag == "EndOfRoom")
-        //{
-        //    Room.transform.rotation = collision.transform.rotation;
-        //    Room.transform.position = collision.transform.position - StartOfRoom.GetComponentInChildren<Transform>().localPosition;
-        //    Debug.LogWarning("gjldbyenj");
-        //}
 
         if (collision.tag == "Player")
         {
@@ -201,9 +142,6 @@ public class RoomMenegerScript : MonoBehaviourPun
     public void RoomClined()
     {
         
-        //Invoke("ExitThisRoom", 1);
-        //ObjectToOf[i].SetActive(false);
-
         if (PhotonNetwork.IsMasterClient & !x)
         {
             x = true;
@@ -243,17 +181,7 @@ public class RoomMenegerScript : MonoBehaviourPun
        //CleanRoom();
     }
 
-
-    
-    //public void HanliHil(bool o) { CanHiling = o; }
-
-    //[PunRPC]
-    //public void synchronization(int MasterXP, float MasterHP)
-    //{
-    //    XP = MasterXP;
-    //    hp = MasterHP;
-    //}
-
+   
 }
 
 

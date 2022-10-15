@@ -11,10 +11,8 @@ public class GameMenedgerR : MonoBehaviour
 {
     public GameObject Plaer;
     public GameObject[] Plaers;
-    //public GameObject Tawer;
     public float minX, minY, maxX, maxY;
     public GameObject StartOfRoomThis;
-//    public GameObject[] EndOfRoomThis;
     public GameObject[] Room;
     public Random rnd;
 
@@ -29,9 +27,6 @@ public class GameMenedgerR : MonoBehaviour
     void Start()
     {
         Vector2 radomePosition = new Vector2(0, 0);
-        //if (PhotonNetwork.IsMasterClient)
-        //    PhotonNetwork.Instantiate(Tawer.name, radomePosition, Quaternion.identity);
-
         PhotonNetwork.Instantiate(Plaer.name, radomePosition, Quaternion.identity);
 
     }

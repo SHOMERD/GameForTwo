@@ -102,17 +102,12 @@ public class GuyScript : MonoBehaviourPun
 
     public void IDed()
     {
-      //  sprite.color = Color.red;
         Elave = false;
         int plaercol = gameMenedgerR.SomoneDie();
         if (plaercol > 0 || true)
         {
             HilAria.SetActive(true);
             HilAria.GetComponentInChildren<HilingAria>().StartHill();
-        }
-        else
-        {
-
         }
     }
 

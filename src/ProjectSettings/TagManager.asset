@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - 412
+  - ammo
+  - Gun
+  - Helper
+  - LevelObject
+  - RoomMeneger
+  - Room
+  - EndOfRoom
+  - StartOfRoom
+  - enemy
   layers:
   - Default
   - TransparentFX

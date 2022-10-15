@@ -68,7 +68,6 @@ MonoBehaviour:
   WeyVector2: 0
   RanTyme: 0
   Speed: 0
-  ttawer: {fileID: 0}
   Damedge: 0
   speedN: 0
   EnemySeed: 0
