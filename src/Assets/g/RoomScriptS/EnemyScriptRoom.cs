@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,9 +21,36 @@ public class EnemyScriptRoom : MonoBehaviourPun
     public int EnemySeed;
     public float hp = 100;
     public GameObject Bafer;
+    public int XP;
+
 
     void Start()
     {
+        for (int i = 0; i < XP / 10; i++)
+        {
+            int BafTipe = Random.Range(1, 10); 
+            switch (BafTipe)
+            {
+                case 1:
+                    GetComponentInChildren<EnemyGunScript>().ReShootTime *= 0.9;
+                    break;
+                case 2:
+                    speedN *= 1.1f;
+                    break;
+                case 3:
+                    Vector3 SC = GetComponentInChildren<EnemyGunScript>().shotDir.localScale * 1.2f;
+                    GetComponentInChildren<EnemyGunScript>().shotDir.localScale = SC;
+                    break;
+                case 4:
+                    GetComponentInChildren<EnemyGunScript>().AmmoSpeed *= 1.2f;
+                    break;
+                case 5:
+                    GetComponentInChildren<EnemyGunScript>().AmmoDamedge = (int)Math.Round(GetComponentInChildren<EnemyGunScript>().AmmoDamedge * 1.2f);
+                    break;
+                default:
+                    break;
+            }
+        }
         ChajWay();
     }
 
@@ -76,7 +104,6 @@ public class EnemyScriptRoom : MonoBehaviourPun
     }
     private void RunR( )
     {
-        
         if (WeyVector1 == 1)
         {
             Vector3 RightAndLeft = transform.right * 1;

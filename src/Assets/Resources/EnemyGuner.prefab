@@ -186,6 +186,7 @@ MonoBehaviour:
   EnemySeed: 0
   hp: 100
   Bafer: {fileID: 3975799955338766296, guid: 1b1c687232457394fa5c48e79b610737, type: 3}
+  XP: 0
 --- !u!1 &7114164137213293677
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +331,10 @@ MonoBehaviour:
   shotDir: {fileID: 7114164138403292108}
   view: {fileID: 0}
   player: {fileID: 0}
+  ReShootTime: 30
+  ShootTimrt: 0
+  AmmoDamedge: 50
+  AmmoSpeed: 8
 --- !u!1 &7114164137336276827
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +465,7 @@ Transform:
   m_GameObject: {fileID: 7114164138403292109}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.605, y: 0, z: 0}
-  m_LocalScale: {x: 0.4827819, y: 1.8385732, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.18, z: 0}
   m_Children: []
   m_Father: {fileID: 7114164137213293676}
   m_RootOrder: 0

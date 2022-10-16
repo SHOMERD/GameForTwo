@@ -68,6 +68,7 @@ public class GameMenedgerR : MonoBehaviour
                 {
                     GameObject Ro5om = PhotonNetwork.Instantiate(Room[0].name, EndOfRoomThis[i].transform.position, EndOfRoomThis[i].transform.rotation);
                     RoomMenegerScript Roomf = Ro5om.GetComponentInChildren<RoomMenegerScript>();
+                    Roomf.XP = XP;
                 }
                 catch (System.Exception)
                 {
@@ -92,7 +93,7 @@ public class GameMenedgerR : MonoBehaviour
     public void EndeOfGame()
     {
 
-        EndTextText = "Финальный счет = " + XP;
+        EndTextText = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ = " + XP;
         EndText.text = EndTextText;
         EndConvas.SetActive(true);
     }

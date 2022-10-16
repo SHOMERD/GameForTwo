@@ -12,10 +12,18 @@ public class EnemyGunScript : MonoBehaviourPun
     public PhotonView view;
     public Transform player;
 
-    // Start is called before the first frame update
-    void Start()
+    public double ReShootTime = 50;
+    public int ShootTimrt = 0;
+    public int AmmoDamedge = 50;
+    public float AmmoSpeed = 8f;
+
+    void Awake()
     {
-        view = GetComponent<PhotonView>();
+        ReShootTime = 70;
+    }
+    // Start is called before the first frame update
+    private void FixedUpdate() {
+        ShootTimrt++;
     }
 
     // Update is called once per frame
@@ -26,11 +34,35 @@ public class EnemyGunScript : MonoBehaviourPun
         float RotateZ = Mathf.Atan2(differense.y, differense.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, RotateZ + offset);
         
-        if (Input.GetMouseButtonDown(0))
-        {
-            PhotonNetwork.Instantiate(ammo.name, shotDir.position, transform.rotation);
-
-        }
-
+        if (ShootTimrt > ReShootTime)
+            {
+                ShootTimrt = 0;
+                Shot();
+            }
+            
     }
+
+    public void Shot(){
+        GameObject Ammo = PhotonNetwork.Instantiate(ammo.name, shotDir.position, transform.rotation);
+        AmmoConstructor(Ammo);
+    }
+
+    public void AmmoConstructor(GameObject Ammo)
+    {
+        Ammo.transform.localScale = shotDir.localScale;
+        EnemyAmmoScript AmmoScript = Ammo.GetComponent<EnemyAmmoScript>();
+        AmmoScript.Damedge = AmmoDamedge;
+        AmmoScript.speed = AmmoSpeed;
+    }
+
+    // // Start is called before the first frame update
+    // 
+
+    // // Update is called once per frame
+    // 
+
+    // }
+    // Shot(){
+    //     PhotonNetwork.Instantiate(ammo.name, shotDir.position, transform.rotation);
+    // }
 }

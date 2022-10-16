@@ -73,6 +73,7 @@ public class RoomMenegerScript : MonoBehaviourPun
         {
             EnemyScriptRoom gameLd = gameL.GetComponent<EnemyScriptRoom>();
             gameLd.EnemySeed = rnd.Next(1, 123541533);
+            gameLd.XP = XP;
         }
         catch (System.Exception)
         {
