@@ -73,6 +73,7 @@ MonoBehaviour:
   EnemySeed: 0
   hp: 1
   Bafer: {fileID: 3975799955338766296, guid: 1b1c687232457394fa5c48e79b610737, type: 3}
+  XP: 0
 --- !u!212 &905946370553608985
 SpriteRenderer:
   m_ObjectHideFlags: 0

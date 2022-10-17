@@ -227,6 +227,7 @@ MonoBehaviour:
   EnemySeed: 0
   hp: 100
   Bafer: {fileID: 3975799955338766296, guid: 1b1c687232457394fa5c48e79b610737, type: 3}
+  XP: 0
 --- !u!1 &8164351060721284553
 GameObject:
   m_ObjectHideFlags: 0
