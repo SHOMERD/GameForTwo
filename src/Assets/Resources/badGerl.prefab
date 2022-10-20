@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 6550428630203083685}
   - component: {fileID: 6550428630203083682}
   - component: {fileID: 6550428630203083683}
+  - component: {fileID: 7597529165425586125}
   m_Layer: 0
   m_Name: badGerl
   m_TagString: enemy
@@ -404,3 +405,19 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &7597529165425586125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6550428630203083353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687775744ef4c41468d330b84c6775c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  Bafer: {fileID: 3975799955338766296, guid: 1b1c687232457394fa5c48e79b610737, type: 3}
+  XP: 0
+  EnemySeed: 0

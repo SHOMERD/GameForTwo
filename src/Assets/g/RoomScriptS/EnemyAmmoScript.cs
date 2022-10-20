@@ -7,15 +7,12 @@ using Photon.Realtime;
 
 
 public class EnemyAmmoScript : MonoBehaviour
-{
-    EnemyScriptRoom enemyScriptRoom;
-    
+{   
     public int Damedge = 50;
     public float speed = 8f;
 
     GuyScript guyScript;
 
-    // Start is called before the first frame update
     void Start()
     {
         Invoke("Destroy", 4);
@@ -25,7 +22,6 @@ public class EnemyAmmoScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);

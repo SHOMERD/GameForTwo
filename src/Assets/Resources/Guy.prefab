@@ -577,7 +577,7 @@ MonoBehaviour:
   view: {fileID: 0}
   ReShootTime: 30
   ShootTimrt: 0
-  AmmoDamedge: 50
+  AmmoDamedge: 100
   AmmoSpeed: 8
 --- !u!114 &1199553713059101414
 MonoBehaviour:

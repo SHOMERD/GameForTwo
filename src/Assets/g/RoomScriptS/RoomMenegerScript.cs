@@ -71,7 +71,7 @@ public class RoomMenegerScript : MonoBehaviourPun
         GameObject gameL = PhotonNetwork.Instantiate(badBoyS[RIndexFBoys].name, SpavPoints[RIndexFSpav].position, transform.rotation);
         try
         {
-            EnemyScriptRoom gameLd = gameL.GetComponent<EnemyScriptRoom>();
+            EnemiHealfControler gameLd = gameL.GetComponent<EnemiHealfControler>();
             gameLd.EnemySeed = rnd.Next(1, 123541533);
             gameLd.XP = XP;
         }
@@ -128,7 +128,7 @@ public class RoomMenegerScript : MonoBehaviourPun
             {
                 for (int i = 0; i < EnemyMass.Length; i++)
                 {
-                    EnemyScriptRoom guyScript = EnemyMass[i].GetComponent<EnemyScriptRoom>();
+                    EnemiHealfControler guyScript = EnemyMass[i].GetComponent<EnemiHealfControler>();
                     guyScript.GetDamedge(100000);
                 }
             }

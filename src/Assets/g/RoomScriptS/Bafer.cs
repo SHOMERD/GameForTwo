@@ -43,11 +43,12 @@ public class Bafer : MonoBehaviour
                 BafedObject.GetComponentInChildren<Gun>().AmmoSpeed *= 1.2f;
                 break;
             case 6:
-                BafedObject.GetComponentInChildren<Gun>().AmmoDamedge = (int)Math.Round(BafedObject.GetComponentInChildren<Gun>().AmmoDamedge * 1.2f );
+                BafedObject.GetComponentInChildren<Gun>().AmmoDamedge = (int)Math.Round(BafedObject.GetComponentInChildren<Gun>().AmmoDamedge * 1.3f );
                 break;
             default:
                 break;
         }
+        //BafedObject.GetComponent<GuyScript>().UpdatedGuy();
         Destroy(gameObject);
 
     }

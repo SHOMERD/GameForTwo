@@ -10,7 +10,7 @@ using Photon.Realtime;
 public class ammo : MonoBehaviour
 {
     public float speed = 8f;
-    EnemyScriptRoom enemyScriptRoom;
+    EnemiHealfControler enemyScriptRoom;
     public int Damedge = 50;
 
     // Start is called before the first frame update
@@ -36,7 +36,7 @@ public class ammo : MonoBehaviour
         {
             try
             {
-                enemyScriptRoom = collision.GetComponent<EnemyScriptRoom>();
+                enemyScriptRoom = collision.GetComponent<EnemiHealfControler>();
                 enemyScriptRoom.GetDamedge(Damedge);
             }
             catch (System.Exception)

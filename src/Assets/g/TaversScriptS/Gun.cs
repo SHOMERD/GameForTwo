@@ -6,7 +6,7 @@ using Photon.Pun;
 public class Gun : MonoBehaviourPun
 {
     public float offset;
-    public float speedN=10F;
+    public float speedN = 10F;
     public GameObject ammo;
     public Transform shotDir;
     public PhotonView view;

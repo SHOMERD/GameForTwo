@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3643693724719273327}
   - component: {fileID: 6395505666330982341}
-  - component: {fileID: 7340210215772774794}
   - component: {fileID: 905946370553608985}
   - component: {fileID: 2939831782626280501}
   - component: {fileID: 3951391295146926722}
   - component: {fileID: 5745970915592284381}
   - component: {fileID: 7078547197315438449}
+  - component: {fileID: 5252737881194321882}
   m_Layer: 0
   m_Name: Pizduk
   m_TagString: enemy
@@ -51,29 +51,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 16
   player: {fileID: 0}
---- !u!114 &7340210215772774794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5201101607971922294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cd91534c5615db459f8e9ee7e341f45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeyNamber: 0
-  WeyVector1: 0
-  WeyVector2: 0
-  RanTyme: 0
-  Speed: 0
-  Damedge: 0
-  speedN: 0
-  EnemySeed: 0
-  hp: 1
-  Bafer: {fileID: 3975799955338766296, guid: 1b1c687232457394fa5c48e79b610737, type: 3}
-  XP: 0
 --- !u!212 &905946370553608985
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -201,3 +178,19 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &5252737881194321882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201101607971922294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687775744ef4c41468d330b84c6775c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 1
+  Bafer: {fileID: 3975799955338766296, guid: 1b1c687232457394fa5c48e79b610737, type: 3}
+  XP: 0
+  EnemySeed: 0
