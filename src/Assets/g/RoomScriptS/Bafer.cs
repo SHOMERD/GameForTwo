@@ -3,14 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class Bafer : MonoBehaviour
+public class Bafer : MonoBehaviourPun
 {
-    public int BafTipe = 1;
+    public int BafTipe =01;
     // Start is called before the first frame update
     void Start()
     {
-        BafTipe = Random.Range(1, 6); 
+        photonView.RPC("synchronizationHP", RpcTarget.AllBuffered, Random.Range(1, 6));
     }
 
     // Update is called once per frame
@@ -52,4 +54,12 @@ public class Bafer : MonoBehaviour
         Destroy(gameObject);
 
     }
+
+
+    [PunRPC]
+    public void synchronizationHP(int BafTipeOnline)
+    {
+        BafTipe = BafTipeOnline;
+    }
+
 }

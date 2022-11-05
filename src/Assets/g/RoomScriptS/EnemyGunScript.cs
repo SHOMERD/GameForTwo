@@ -35,10 +35,10 @@ public class EnemyGunScript : MonoBehaviourPun
         transform.rotation = Quaternion.Euler(0f, 0f, RotateZ + offset);
         
         if (ShootTimrt > ReShootTime)
-            {
-                ShootTimrt = 0;
-                Shot();
-            }
+        {
+            ShootTimrt = 0;
+            Shot();
+        }
             
     }
 

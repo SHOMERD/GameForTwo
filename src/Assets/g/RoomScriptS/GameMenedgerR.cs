@@ -93,7 +93,7 @@ public class GameMenedgerR : MonoBehaviour
     public void EndeOfGame()
     {
 
-        EndTextText = "��������� ���� = " + XP;
+        EndTextText = "Фенальный счет = " + XP;
         EndText.text = EndTextText;
         EndConvas.SetActive(true);
     }

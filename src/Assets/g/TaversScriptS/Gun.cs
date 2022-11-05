@@ -17,6 +17,7 @@ public class Gun : MonoBehaviourPun
     public int AmmoDamedge = 50;
     public float AmmoSpeed = 8f;
 
+    GameObject Ammo;
 
     // Start is called before the first frame update
     void Start()
@@ -37,21 +38,24 @@ public class Gun : MonoBehaviourPun
             Vector3 differense = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             float RotateZ = Mathf.Atan2(differense.y, differense.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, RotateZ + offset);
-
+        }
             if (Input.GetMouseButtonDown(1) || (Input.GetMouseButton(0) && ShootTimrt > ReShootTime))
             {
                 ShootTimrt = 0;
+                if( photonView.IsMine & guyScript.Elave) {  
                 Shot();
+                }
+                AmmoConstructor();
             }
-        }
+        
     }
 
     public void Shot(){
-        GameObject Ammo = PhotonNetwork.Instantiate(ammo.name, shotDir.position, transform.rotation);
-        AmmoConstructor(Ammo);
+        Ammo = PhotonNetwork.Instantiate(ammo.name, shotDir.position, transform.rotation);
+        
     }
 
-    public void AmmoConstructor(GameObject Ammo)
+    public void AmmoConstructor()
     {
         Ammo.transform.localScale = shotDir.localScale;
         ammo AmmoScript = Ammo.GetComponent<ammo>();

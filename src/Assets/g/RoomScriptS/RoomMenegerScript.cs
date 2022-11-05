@@ -175,6 +175,7 @@ public class RoomMenegerScript : MonoBehaviourPun
         EnemyMass = GameObject.FindGameObjectsWithTag("enemy");
 
     }
+    
     [PunRPC]
     public void synchronization()
     {
