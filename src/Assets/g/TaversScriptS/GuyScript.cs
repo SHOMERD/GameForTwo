@@ -44,13 +44,10 @@ public class GuyScript : MonoBehaviourPun
 
 
     }
-    private void RunR()
+    private void Run()
     {
         Vector3 RightAndLeft = transform.right * Input.GetAxis("Horizontal");
         transform.position = Vector3.MoveTowards(transform.position, transform.position + RightAndLeft, speedN * Time.deltaTime);
-    }
-    private void RunU()
-    {
         Vector3 UpAndDaun = transform.up * Input.GetAxis("Vertical");
         transform.position = Vector3.MoveTowards(transform.position, transform.position + UpAndDaun, speedN * Time.deltaTime);
     }
@@ -58,10 +55,8 @@ public class GuyScript : MonoBehaviourPun
     {
         if (Elave)
         {
-            if (Input.GetButton("Horizontal") & photonView.IsMine)
-                RunR();
-            if (Input.GetButton("Vertical") & photonView.IsMine)
-                RunU();
+            if ((Input.GetButton("Vertical") || Input.GetButton("Horizontal")) & photonView.IsMine)
+                Run();  
         }
     }
 
