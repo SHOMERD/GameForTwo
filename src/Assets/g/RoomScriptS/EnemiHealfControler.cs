@@ -19,8 +19,12 @@ public class EnemiHealfControler : MonoBehaviourPun
 
     void Start()
     {
-        if(PhotonNetwork.IsMasterClient) {
-            GetComponent<EnemyMuverRoom>().EnemySeed = EnemySeed;
+        if(PhotonNetwork.IsMasterClient) {            
+            try{
+                GetComponent<EnemyMuverRoom>().EnemySeed = EnemySeed;
+            }
+             catch (System.Exception)
+            {}
             for (int i = 0; i < XP / 10; i++)
             {
                 photonView.RPC("BafEnemi", RpcTarget.AllBuffered, Random.Range(1, 10));
